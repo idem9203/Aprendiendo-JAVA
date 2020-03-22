@@ -93,6 +93,7 @@ public class Formulario extends JFrame implements ActionListener, ItemListener {
         combo1.addItemListener(this);
 
         setTitle("BlueView");
+        //getContentPane().setBackground(new Color(39, 40, 34));  //Cambia el color del fondo de la ventana
 
     }
 
