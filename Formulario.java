@@ -1,10 +1,11 @@
 import javax.swing.*; //el * le indica que importara todos los elementos
+import javax.swing.event.*;
 import java.awt.*;
 import java.awt.event.*; //Libreria para eventos se encarga de ejecutar programas al ver un evento
 
 public class Formulario extends JFrame implements ActionListener, ItemListener { //queda pendiente a cualquier evento
 
-    private JButton boton1, boton2, boton3, boton4, boton5;
+    private JButton boton1, boton2, boton3, boton4, boton5, boton6;
     private JLabel label1, label2, label3, label4, label5, label6;  //modificador de acceso private unicamente esta clase tendra acceso a este label
     private JTextField textfield1, textfield2, textfield3;
     private JScrollPane scrollpane1;
@@ -43,6 +44,12 @@ public class Formulario extends JFrame implements ActionListener, ItemListener {
         add(boton5);
         boton5.addActionListener(this); //el boton estara a la espera para realizar una funcion
 
+        boton6 = new JButton("Conectar");
+        boton6.setBounds(100, 134, 100, 30);
+        add(boton6);
+        boton6.addActionListener(this); //el boton estara a la espera para realizar una funcion
+        boton6.setEnabled(false);      //desactiva boton para ser oprimido
+
         label1 = new JLabel("Valor 1:"); //crea label
         label1.setBounds(10, 20, 300, 30);  //le da forma al label
         add(label1);  //adiciona el label a la ventana
@@ -64,7 +71,7 @@ public class Formulario extends JFrame implements ActionListener, ItemListener {
         add(label5);  //adiciona el label a la ventana
 
         label6 = new JLabel(""); //crea label
-        label6.setBounds(100, 134, 120, 30);  //le da forma al label
+        label6.setBounds(300, 290, 120, 30);  //le da forma al label
         add(label6);  //adiciona el label a la ventana
 
         textfield1 = new JTextField();
@@ -101,7 +108,8 @@ public class Formulario extends JFrame implements ActionListener, ItemListener {
         if(e.getSource() == combo1){
             String seleccion = combo1.getSelectedItem().toString();
             label6.setText("Conectado a: " + seleccion);
-            setTitle("BlueView - Conectado a: " + seleccion);
+            boton6.setEnabled(true); //habilita boton
+            //setTitle("BlueView - Conectado a: " + seleccion);
         }
     }
 
